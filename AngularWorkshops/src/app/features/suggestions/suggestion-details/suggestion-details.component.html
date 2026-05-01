@@ -1,0 +1,24 @@
+<div class="details-container" *ngIf="suggestion; else notFound">
+  <button class="btn-back" (click)="goBack()">← Retour à la liste</button>
+  
+  <div class="details-card">
+    <h2>{{ suggestion.title }}</h2>
+    <p class="description">{{ suggestion.description }}</p>
+    
+    <div class="details-grid">
+      <div><strong>📂 Catégorie :</strong> {{ suggestion.category }}</div>
+      <div><strong>📅 Date :</strong> {{ suggestion.date | date:'dd/MM/yyyy' }}</div>
+      <div><strong>📊 Statut :</strong> 
+        <span [class]="suggestion.status">{{ suggestion.status }}</span>
+      </div>
+      <div><strong>👍 Likes :</strong> {{ suggestion.nbLikes }}</div>
+    </div>
+  </div>
+</div>
+
+<ng-template #notFound>
+  <div class="not-found">
+    <h2>❌ Suggestion non trouvée</h2>
+    <button class="btn-back" (click)="goBack()">Retour à la liste</button>
+  </div>
+</ng-template>

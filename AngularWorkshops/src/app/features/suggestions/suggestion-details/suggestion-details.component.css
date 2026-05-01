@@ -1,0 +1,62 @@
+.details-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.btn-back {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.btn-back:hover {
+  background-color: #5a6268;
+}
+
+.details-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  color: #555;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.acceptee {
+  color: green;
+  font-weight: bold;
+}
+
+.refusee {
+  color: red;
+  font-weight: bold;
+}
+
+.en_attente {
+  color: orange;
+  font-weight: bold;
+}
+
+.not-found {
+  text-align: center;
+  padding: 3rem;
+}

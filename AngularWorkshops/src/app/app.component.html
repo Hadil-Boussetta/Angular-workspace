@@ -1,3 +1,11 @@
-<div style="height: 100px ; background-color: cadetblue;"> <header></header></div>
-<div style="height: 1700px ; background-color: rgb(241, 255, 255);"><app-list-suggestion></app-list-suggestion></div>
-<div style="height: 100px ; background-color: rgb(84, 98, 98);"><app-footer></app-footer> </div>   
+<div style="height: 100px ; background-color: cadetblue;"> 
+  <app-header></app-header>  <!-- Correction : header → app-header -->
+</div>
+
+<div style="min-height: 1700px ; background-color: rgb(241, 255, 255);">
+  <router-outlet></router-outlet>  <!-- ← Le routage s'affiche ici -->
+</div>
+
+<div style="height: 100px ; background-color: rgb(84, 98, 98);">
+  <app-footer></app-footer> 
+</div>

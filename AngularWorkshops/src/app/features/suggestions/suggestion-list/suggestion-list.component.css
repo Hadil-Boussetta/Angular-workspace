@@ -1,0 +1,198 @@
+/* Container principal */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Titre principal */
+.container h2 {
+  color: #333;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Barre de recherche */
+.search-bar {
+  margin-bottom: 25px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Liste des suggestions */
+.suggestions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Carte de suggestion */
+.suggestion-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.suggestion-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre de la suggestion */
+.suggestion-card h3 {
+  margin: 0 0 12px 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  border-left: 4px solid #007bff;
+  padding-left: 12px;
+}
+
+/* Description */
+.suggestion-card p {
+  color: #555;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+/* Informations (catégorie, date, statut, likes) */
+.suggestion-card p strong {
+  color: #333;
+  min-width: 80px;
+  display: inline-block;
+}
+
+/* Statut avec couleurs */
+.suggestion-card p:has(strong:contains("Statut")) {
+  font-weight: 500;
+}
+
+/* Style spécifique pour le statut dans le texte */
+.suggestion-card p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Groupe de boutons */
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Style commun des boutons */
+.btn-like, .btn-fav, .btn-details {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Bouton Like */
+.btn-like {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-like:hover {
+  background-color: #0056b3;
+  transform: scale(1.02);
+}
+
+/* Bouton Favoris */
+.btn-fav {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.btn-fav:hover {
+  background-color: #e0a800;
+  transform: scale(1.02);
+}
+
+/* Bouton Détails */
+.btn-details {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-details:hover {
+  background-color: #1e7e34;
+  transform: scale(1.02);
+}
+
+/* Section des favoris */
+.favorites {
+  margin-top: 30px;
+  background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #ffeaa7;
+}
+
+.favorites h3 {
+  margin: 0 0 15px 0;
+  color: #856404;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.favorites ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.favorites li {
+  margin: 8px 0;
+  color: #856404;
+  font-weight: 500;
+}
+
+/* Message quand aucun résultat */
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .suggestion-card {
+    padding: 15px;
+  }
+  
+  .buttons {
+    flex-direction: column;
+  }
+  
+  .btn-like, .btn-fav, .btn-details {
+    width: 100%;
+  }
+}
