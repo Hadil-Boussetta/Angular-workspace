@@ -1,0 +1,47 @@
+<div class="form-container">
+  <h2>Ajouter une suggestion</h2>
+
+  <form [formGroup]="suggestionForm" (ngSubmit)="submitSuggestion()">
+    <div class="form-group">
+      <label for="title">Titre</label>
+      <input id="title" formControlName="title" type="text" placeholder="Titre de la suggestion" />
+      <div class="error" *ngIf="title?.touched && title?.errors">
+        <span *ngIf="title?.errors?.['required']">Le titre est requis.</span>
+        <span *ngIf="title?.errors?.['minlength']">Le titre doit contenir au moins 5 caractères.</span>
+        <span *ngIf="title?.errors?.['pattern']">Le titre doit commencer par une majuscule et ne contenir que des lettres.</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" placeholder="Décrivez votre suggestion"></textarea>
+      <div class="error" *ngIf="description?.touched && description?.errors">
+        <span *ngIf="description?.errors?.['required']">La description est requise.</span>
+        <span *ngIf="description?.errors?.['minlength']">La description doit contenir au moins 30 caractères.</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Catégorie</label>
+      <select id="category" formControlName="category">
+        <option value="" disabled>Sélectionnez une catégorie</option>
+        <option *ngFor="let categoryOption of categories" [value]="categoryOption">{{ categoryOption }}</option>
+      </select>
+      <div class="error" *ngIf="category?.touched && category?.errors">
+        <span *ngIf="category?.errors?.['required']">La catégorie est requise.</span>
+      </div>
+    </div>
+
+    <div class="form-group readonly-group">
+      <label>Date</label>
+      <input type="text" [value]="currentDate | date:'dd/MM/yyyy HH:mm'" readonly />
+    </div>
+
+    <div class="form-group readonly-group">
+      <label>Statut</label>
+      <input type="text" [value]="defaultStatus" readonly />
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="suggestionForm.invalid">Soumettre</button>
+  </form>
+</div>

@@ -1,0 +1,23 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <label >name</label>
+    <input formControlName="name" >
+    <div style="color: red;" *ngIf="name?.invalid && name?.touched">
+        <!-- le nom invalid -->
+        <div *ngIf="name?.errors?.['required']"> Name is required. </div>
+        <div *ngIf="name?.errors?.['maxlength']"> Name is too long. </div>
+    </div>
+    <br>
+    <label >email</label>
+    <input formControlName="email">
+        <div style="color: red;" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+            LE FORMat de l'email est incorrect
+        </div>
+    <br>
+    <label >password</label>
+    <input formControlName="password" type="password">
+        <div style="color: red;" *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+            Le mot de passe est minimum 6 caractères
+        </div>
+    <br>
+    <button [disabled]="userForm.invalid" type="submit">Submit</button>
+</form>

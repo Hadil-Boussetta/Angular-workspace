@@ -1,0 +1,36 @@
+<div class="suggestion-details-container" *ngIf="suggestion">
+  <h2>Suggestion Details</h2>
+
+  <div class="suggestion-card">
+    <div class="suggestion-field">
+      <label>Title:</label>
+      <span>{{ suggestion.title }}</span>
+    </div>
+
+    <div class="suggestion-field">
+      <label>Description:</label>
+      <span>{{ suggestion.description }}</span>
+    </div>
+
+    <div class="suggestion-field">
+      <label>Category:</label>
+      <span>{{ suggestion.category }}</span>
+    </div>
+
+    <div class="suggestion-field">
+      <label>Status:</label>
+      <span class="status" [ngClass]="suggestion.status.toLowerCase()">{{ suggestion.status }}</span>
+    </div>
+
+    <div class="suggestion-field" *ngIf="suggestion.date">
+      <label>Created Date:</label>
+      <span>{{ suggestion.date | date:'medium' }}</span>
+    </div>
+  </div>
+
+  <button (click)="backToList()" class="btn-back">Back to List</button>
+</div>
+
+<div *ngIf="!suggestion" class="loading">
+  <p>Loading suggestion details...</p>
+</div>
