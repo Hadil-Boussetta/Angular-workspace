@@ -1,0 +1,12 @@
+{
+  "suggestions": [
+    {
+      "title": "Newsugg",
+      "description": "Décrivier les trentes caractéres de n'imoorte quoi",
+      "category": "Communication interne",
+      "id": "4Bv431aQADQ",
+      "nbLikes": 1
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

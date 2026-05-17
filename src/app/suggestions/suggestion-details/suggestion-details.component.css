@@ -38,6 +38,7 @@
 }
 
 .status {
+  display: inline-block;
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.9em;
@@ -45,17 +46,17 @@
   text-transform: uppercase;
 }
 
-.status.pending {
+.status.pending, .status.en-attente {
   background-color: #fff3cd;
   color: #856404;
 }
 
-.status.approved {
+.status.acceptee, .status.approved {
   background-color: #d4edda;
   color: #155724;
 }
 
-.status.rejected {
+.status.refusee, .status.rejected {
   background-color: #f8d7da;
   color: #721c24;
 }
@@ -81,4 +82,27 @@
   text-align: center;
   padding: 50px;
   color: #666;
+}
+
+.btn-update {
+  background: #f39c12;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-update:hover {
+  background-color: #e67e22;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 15px;
 }

@@ -1,10 +1,9 @@
-export class Suggestion
-{
-id!: number;
-title!: string;
-description!: string;
-category!: string;
-date!: Date;
-status!: string;
-nbLikes!: number;
+export interface Suggestion {
+  id: string;  
+  title: string;
+  description: string;
+  category: string;
+  date?: string;
+  status?: string;
+  nbLikes?: number;
 }

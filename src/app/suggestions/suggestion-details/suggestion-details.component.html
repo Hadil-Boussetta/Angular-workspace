@@ -19,7 +19,10 @@
 
     <div class="suggestion-field">
       <label>Status:</label>
-      <span class="status" [ngClass]="suggestion.status.toLowerCase()">{{ suggestion.status }}</span>
+      <!-- CORRECTION ICI : Ajouter ? pour éviter l'erreur si status est null/undefined -->
+      <span class="status" [ngClass]="suggestion.status?.toLowerCase() || 'pending'">
+        {{ suggestion.status || 'EN ATTENTE' }}
+      </span>
     </div>
 
     <div class="suggestion-field" *ngIf="suggestion.date">
@@ -28,7 +31,10 @@
     </div>
   </div>
 
-  <button (click)="backToList()" class="btn-back">Back to List</button>
+  <div class="action-buttons">
+    <button (click)="goToUpdate()" class="btn-update">✏️ Update</button>
+    <button (click)="backToList()" class="btn-back">Back to List</button>
+  </div>
 </div>
 
 <div *ngIf="!suggestion" class="loading">

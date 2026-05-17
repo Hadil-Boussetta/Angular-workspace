@@ -143,6 +143,7 @@ h2 {
   border-radius: 6px;
   cursor: pointer;
 }
+
 .favorites-section {
   margin-top: 40px;
   padding-top: 20px;
@@ -158,6 +159,7 @@ h2 {
   border-left: 5px solid #f1c40f;
   background: #fffbea;
 }
+
 .eye-btn {
   background: #34495e;
   color: white;
@@ -171,4 +173,33 @@ h2 {
 
 .eye-btn:hover {
   background: #2c3e50;
+}
+
+.edit-btn {
+  background: #f39c12;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.edit-btn:hover {
+  background: #e67e22;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
 }

@@ -23,52 +23,48 @@
     <p>{{ suggestion.description }}</p>
 
     <!-- STATUS -->
-    <span class="status"
-          [ngClass]="suggestion.status === 'ACCEPTEE' ? 'accepted' : 'refused'">
+    <span class="status" [ngClass]="suggestion.status === 'ACCEPTEE' ? 'accepted' : 'refused'">
       {{ suggestion.status }}
     </span>
 
-    <!-- ACTIONS (condition importante) -->
-    <div class="actions" *ngIf="suggestion.status !== 'REFUSEE'">
+    <!-- ACTIONS -->
+    <div class="actions">
 
-      <button class="like-btn"
-              (click)="likeSuggestion(suggestion)">
+      <button class="like-btn" (click)="likeSuggestion(suggestion)">
         👍 Like {{ suggestion.nbLikes }}
       </button>
 
-      <button class="fav-btn"
-              (click)="addToFavorites(suggestion)">
+      <button class="fav-btn" (click)="addToFavorites(suggestion)">
         ❤️ Ajouter aux favoris
       </button>
- <button class="eye-btn" [routerLink]="['/suggestions/details', suggestion.id]"
-  >
-    👁️
-  </button>
+
+      <button class="eye-btn" [routerLink]="['/suggestions/details', suggestion.id]">
+        👁️
+      </button>
+
+      
+      <button class="edit-btn" (click)="editSuggestion(suggestion.id)">
+        ✏️ Modifier
+      </button>
+
+      <button class="delete-btn" (click)="deleteSuggestion(suggestion.id)">
+        🗑️ Supprimer
+      </button>
+
     </div>
 
   </div>
 </div>
+
 <!-- FAVORIS -->
 <div class="favorites-section" *ngIf="favorites.length > 0">
-
   <h2>⭐ Mes Favoris</h2>
-
   <div class="card fav-card" *ngFor="let fav of favorites">
-    
     <h3>{{ fav.title }}</h3>
-
     <div class="meta">
       <span class="category">{{ fav.category }}</span>
       <span class="date">{{ fav.date | date:'dd MMM yyyy' }}</span>
     </div>
-
     <p>{{ fav.description }}</p>
-
-    <span class="status"
-          [ngClass]="fav.status === 'ACCEPTEE' ? 'accepted' : 'refused'">
-      {{ fav.status }}
-    </span>
-
   </div>
-
 </div>

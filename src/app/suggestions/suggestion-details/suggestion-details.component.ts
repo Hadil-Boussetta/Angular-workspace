@@ -19,15 +19,20 @@ export class SuggestionDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.ar.params.subscribe(params => {
-      const id = +params['id']; 
-      this.loadSuggestion(id);
+      const id = params['id'];
+      console.log('ID récupéré:', id);
+      if (id) {
+        this.loadSuggestion(id);
+      }
     });
   }
 
-  loadSuggestion(id: number): void {
+  loadSuggestion(id: string): void {
     this.suggestionService.getSuggestionById(id).subscribe({
       next: (data) => {
-        this.suggestion = data.suggestion;
+        console.log('Suggestion reçue:', data);
+        // Gérer les deux formats possibles de réponse
+        this.suggestion = data.suggestion || data;
       },
       error: (error: any) => {
         console.error('Error loading suggestion:', error);
@@ -37,5 +42,11 @@ export class SuggestionDetailsComponent implements OnInit {
 
   backToList() {
     this.r.navigate(['/suggestions']);
+  }
+
+  goToUpdate() {
+    if (this.suggestion && this.suggestion.id) {
+      this.r.navigate(['/suggestionForm/edit', this.suggestion.id]);
+    }
   }
 }
